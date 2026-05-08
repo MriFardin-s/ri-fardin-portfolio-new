@@ -1,26 +1,76 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
 
-@media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary: #9333ea;    
+    --secondary: #a855f7;
+    --accent: #c084fc;
+    --neutral: #f8fafc;
+    --base-100: #ffffff;   
+    --foreground: #0f172a; 
+  }
+
+
+  .dark {
+    --primary: #a855f7; 
+    --secondary: #c084fc;
+    --accent: #d8b4fe;
+    --neutral: #0f172a;
+    --base-100: #020617;  
+    --foreground: #ffffff; 
+  }
+
+  body {
+    background-color: var(--base-100);
+    color: var(--foreground);
+    @apply antialiased transition-colors duration-500;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+.custom-bg {
+  background-color: var(--base-100);
+}
+
+.text-brand {
+  color: var(--primary);
+}
+
+
+@media (min-width: 1024px) {
+  * { cursor: none !important; }
+  a, button, [role="button"], .group, .cursor-pointer { cursor: none !important; }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--base-100); }
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+
+@layer base {
+  :root {
+    --base-100: #ffffff;
+    --foreground: #0f172a;
+    --primary: #9333ea;
+  }
+
+  
+  .dark {
+    --base-100: #020617; 
+    --foreground: #ffffff;
+    --primary: #a855f7;
+  }
+
+  body {
+    background-color: var(--base-100);
+    color: var(--foreground);
+    @apply transition-colors duration-500; 
+  }
 }
