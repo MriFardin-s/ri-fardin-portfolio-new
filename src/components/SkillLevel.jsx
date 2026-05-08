@@ -41,7 +41,7 @@ const SkillLevel = () => {
 
   return (
 
-    <section id="skills" className="py-24 bg-white dark:bg-[#020617] px-6 relative overflow-hidden transition-colors duration-500">
+    <section id="skill-level" className="py-24 bg-white dark:bg-[#020617] px-6 relative overflow-hidden transition-colors duration-500">
       
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/5 dark:bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>

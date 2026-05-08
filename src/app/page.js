@@ -5,6 +5,8 @@ import Hero from "@/components/hero";
 import SkillLevel from "@/components/SkillLevel";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import AboutSection from "@/components/AboutSection";
+import Qualification from "@/components/Qualification";
 
 export default function Home() {
   return (
@@ -26,18 +28,27 @@ export default function Home() {
           <Hero/>
         </section>
 
+        
+    
+
         {/* Skills & Technologies */}
+        <section id="" className="mt-32 relative z-10">
+          <AboutSection/>
+        </section>
         <section id="skills" className="mt-32 relative z-10">
           <Skills/>
         </section>
 
         {/* Skill Levels */}
-        <section className="mt-32 relative z-10">
+        <section id="skill-level" className="mt-32 relative z-10">
           <SkillLevel/>
+        </section>
+        <section id="qualification" className="mt-32 relative z-10">
+          <Qualification/>
         </section>
 
         {/* Projects */}
-        <section id="works" className="mt-32 relative z-10">
+        <section id="projects" className="mt-32 relative z-10">
           <Projects />
         </section>
 

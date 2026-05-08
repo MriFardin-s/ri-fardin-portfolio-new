@@ -5,21 +5,22 @@ import { FiSend, FiLinkedin, FiGithub, FiTwitter, FiInstagram } from "react-icon
 import heroImg from "../assets/hero-removebg.png";
 import { Typewriter } from "react-simple-typewriter";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Hero() {
-  const [activeBtn, setActiveBtn] = useState('hello'); 
+  const [activeBtn, setActiveBtn] = useState('hello');
 
   return (
     <div>
 
       <section className="min-h-screen bg-white dark:bg-[#020617] relative overflow-hidden px-6 md:px-16 flex flex-col justify-start pt-20 md:pt-28 transition-colors duration-500">
-        
+
 
         <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-600/10 dark:bg-purple-600/15 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-purple-900/5 dark:bg-purple-900/10 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row-reverse items-start justify-between gap-12 z-10">
-          
+
 
           <div className="relative group flex-1 flex justify-center lg:justify-end">
             <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-purple-800/10 dark:from-purple-500/30 dark:to-purple-800/20 rounded-full blur-[60px] opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
@@ -36,10 +37,41 @@ export default function Hero() {
           <div className="flex flex-row items-start gap-10 md:gap-20 flex-1">
 
             <div className="hidden sm:flex flex-col gap-8 text-2xl text-slate-400 dark:text-gray-500 mt-4 border-r border-slate-200 dark:border-white/5 pr-6">
-              <a href="#" className="hover:text-purple-600 dark:hover:text-purple-500 transition-all transform hover:-translate-y-1"><FiLinkedin /></a>
-              <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-all transform hover:-translate-y-1"><FiGithub /></a>
-              <a href="#" className="hover:text-purple-500 dark:hover:text-purple-400 transition-all transform hover:-translate-y-1"><FiTwitter /></a>
-              <a href="#" className="hover:text-pink-500 dark:hover:text-pink-400 transition-all transform hover:-translate-y-1"><FiInstagram /></a>
+              <a
+                href="https://www.linkedin.com/in/m-rabbi-islam-fardin-23a3a4264"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-purple-600 dark:hover:text-purple-500 transition-all transform hover:-translate-y-1"
+              >
+                <FiLinkedin />
+              </a>
+
+              <a
+                href="https://github.com/MriFardin-s"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white transition-all transform hover:-translate-y-1"
+              >
+                <FiGithub />
+              </a>
+
+              <a
+                href="https://x.com/rifardin23"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-purple-500 dark:hover:text-purple-400 transition-all transform hover:-translate-y-1"
+              >
+                <FiTwitter />
+              </a>
+
+              <a
+                href="https://www.instagram.com/ri_fardin_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-pink-500 dark:hover:text-pink-400 transition-all transform hover:-translate-y-1"
+              >
+                <FiInstagram />
+              </a>
             </div>
 
             <div className="space-y-6">
@@ -88,26 +120,29 @@ export default function Hero() {
 
 
               <div className="pt-4 flex flex-wrap gap-5">
-                <button 
+                <Link
+                  href="#contact"
                   onClick={() => setActiveBtn('hello')}
                   className={`group relative flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg 
-                    ${activeBtn === 'hello' 
-                      ? 'bg-purple-600 text-white shadow-purple-500/25 scale-105' 
+      ${activeBtn === 'hello'
+                      ? 'bg-purple-600 text-white shadow-purple-500/25 scale-105'
                       : 'border border-purple-500/30 text-slate-800 dark:text-white hover:bg-purple-500/10'}`}
                 >
                   Say Hello
                   <FiSend className={`transition-transform duration-300 ${activeBtn === 'hello' ? 'group-hover:translate-x-1 group-hover:-translate-y-1' : ''}`} />
-                </button>
-                
-                <button 
+                </Link>
+
+                {/* View Work Link */}
+                <Link
+                  href="#projects"
                   onClick={() => setActiveBtn('work')}
                   className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 
-                    ${activeBtn === 'work' 
-                      ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/25 scale-105' 
+      ${activeBtn === 'work'
+                      ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/25 scale-105'
                       : 'border border-purple-500/30 text-slate-800 dark:text-white hover:bg-purple-500/10'}`}
                 >
                   View Work
-                </button>
+                </Link>
               </div>
             </div>
           </div>

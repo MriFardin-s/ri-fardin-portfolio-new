@@ -2,8 +2,8 @@
 
 import {
   FiCode, FiHome, FiCpu, FiBookOpen,
-  FiLayout, FiMessageSquare,
- FiMenu
+  FiLayout, FiMessageSquare, FiMenu,
+  FiUser, FiShield, FiBriefcase, FiChevronDown, FiStar, FiX
 } from "react-icons/fi";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -22,28 +22,41 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const closeMenu = () => {
+    const elem = document.activeElement;
+    if (elem) {
+      elem.blur();
+    }
+  };
+
   const mainLinks = [
-    { name: "Home", href: "/", icon: <FiHome /> },
-    { name: "Tech", href: "#skills", icon: <FiCpu /> }, 
-    { name: "Education", href: "/qualification", icon: <FiBookOpen /> },
-    { name: "Projects", href: "#projects", icon: <FiLayout /> },
-    { name: "Contact", href: "#contact", icon: <FiMessageSquare /> },
+    { name: "Home", href: "/", icon: <FiHome className="text-amber-400" /> },
+    { name: "Tech Stack", href: "#skills", icon: <FiCpu className="text-cyan-400" /> }, 
+    { name: "Qualification", href: "#qualification", icon: <FiBookOpen className="text-purple-400" /> },
+    { name: "Projects", href: "#projects", icon: <FiLayout className="text-orange-400" /> },
+    { name: "Contact Me", href: "#contact", icon: <FiMessageSquare className="text-pink-400" /> },
+  ];
+
+  const moreLinks = [
+    { name: "About Me", href: "#about", icon: <FiUser /> },
+    { name: "Skills", href: "#skill-level", icon: <FiShield /> },
+    { name: "Services", href: "#services", icon: <FiBriefcase /> },
+    { name: "Testimonials", href: "#testimonials", icon: <FiStar /> },
   ];
 
   return (
-   
-    <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 px-4 md:px-10 ${
-      isScrolled 
-      ? "bg-white/90 dark:bg-[#020617]/80 py-3 backdrop-blur-xl border-b border-slate-200 dark:border-purple-500/20 shadow-sm" 
-      : "py-6 bg-transparent"
-    }`}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <nav className={`fixed top-4 left-0 w-full z-[100] transition-all duration-500 px-4 md:px-10`}>
+      <div className={`max-w-7xl mx-auto flex items-center justify-between transition-all duration-500 px-6 py-3 rounded-full border ${
+        isScrolled 
+        ? "bg-white/80 dark:bg-[#020617]/80 backdrop-blur-xl border-slate-200 dark:border-purple-500/20 shadow-lg" 
+        : "bg-white/10 dark:bg-white/5 backdrop-blur-md border-white/10"
+      }`}>
 
 
         <div className="flex-none">
-          <Link href="/" className="flex items-center gap-2 md:gap-3 text-xl md:text-2xl font-black text-slate-900 dark:text-white tracking-tighter group">
-            <div className="p-1.5 md:p-2 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 border border-purple-600/20 transition-all">
-              <FiCode className="text-purple-600 text-xl md:text-2xl" />
+          <Link href="/" className="flex items-center gap-2 text-xl font-black text-slate-900 dark:text-white tracking-tighter group">
+            <div className="p-1.5 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 border border-purple-600/20 transition-all">
+              <FiCode className="text-purple-600 text-xl" />
             </div>
             <span className="group-hover:text-purple-600 transition-colors hidden sm:block">
               FARDIN<span className="text-purple-600">.</span>DEV
@@ -52,58 +65,66 @@ export default function Navbar() {
         </div>
 
 
-        <div className={`hidden lg:flex items-center gap-1 p-1 rounded-2xl border transition-all duration-500
-          ${isScrolled
-            ? "bg-white/50 dark:bg-white/5 border-slate-200 dark:border-white/10 shadow-sm"
-            : "bg-slate-100/50 dark:bg-white/5 backdrop-blur-md border-transparent"}`}>
+        <div className="hidden lg:flex items-center gap-1">
           <ul className="flex items-center gap-1">
-            {mainLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <li key={link.href}>
-                  <Link href={link.href} className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
-                        isActive
-                        ? "bg-purple-600 text-white shadow-md shadow-purple-600/20"
-                        : "text-slate-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-white hover:bg-purple-50 dark:hover:bg-white/5"
-                      }`}>
-                    {link.icon} {link.name}
-                  </Link>
-                </li>
-              );
-            })}
+            {mainLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-all hover:bg-black/5 dark:hover:bg-white/5 ${
+                  pathname === link.href ? "text-purple-500 bg-purple-500/10" : "text-slate-600 dark:text-gray-300"
+                }`}>
+                  {link.icon} {link.name}
+                </Link>
+              </li>
+            ))}
+
+            <div className="dropdown dropdown-bottom dropdown-end">
+              <label tabIndex={0} className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium text-slate-600 dark:text-gray-300 cursor-pointer hover:bg-black/5 dark:hover:bg-white/5 transition-all">
+                <FiMenu className="text-blue-400" /> More <FiChevronDown />
+              </label>
+              <ul tabIndex={0} className="dropdown-content mt-2 z-[1] p-2 shadow-xl bg-white dark:bg-[#0b0f1a] border border-slate-200 dark:border-purple-500/20 rounded-2xl w-48">
+                {moreLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      href={link.href} 
+                      onClick={closeMenu}
+                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs text-slate-600 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-white/5 hover:text-purple-600 transition-all"
+                    >
+                      {link.icon} {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </ul>
         </div>
 
-        <div className="flex items-center gap-2 md:gap-4">
+
+        <div className="flex items-center gap-12">
+         
+          
           <div className="hidden sm:block">
-            <Link href="/contact" className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-purple-600/20 active:scale-95">
+            <Link href="#contact" className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-full font-bold text-xs transition-all shadow-lg shadow-purple-600/20">
               Hire Me
             </Link>
           </div>
-          
-          <div className="bg-slate-100 dark:bg-white/5 p-1 rounded-xl border border-slate-200 dark:border-white/10">
-            <ThemeToggle />
-          </div>
-
+                 <ThemeToggle />
 
           <div className="lg:hidden dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle text-slate-900 dark:text-white hover:bg-purple-50 dark:hover:bg-white/10">
+            <label tabIndex={0} className="btn btn-ghost btn-circle text-slate-900 dark:text-white">
               <FiMenu size={24} />
             </label>
-            <ul tabIndex={0} className="dropdown-content mt-4 z-[1] p-2 shadow-2xl bg-white dark:bg-[#0b0f1a] border border-slate-200 dark:border-purple-500/20 rounded-2xl w-56 space-y-1">
-              {mainLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-white/5 hover:text-purple-600">
+            <ul tabIndex={0} className="dropdown-content mt-4 z-[1] p-2 shadow-2xl bg-white dark:bg-[#0b0f1a] border border-slate-200 dark:border-purple-500/20 rounded-2xl w-64 space-y-1">
+              {[...mainLinks, ...moreLinks].map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    href={link.href} 
+                    onClick={closeMenu}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-slate-600 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-white/5 hover:text-purple-600"
+                  >
                     {link.icon} {link.name}
                   </Link>
                 </li>
               ))}
-              <div className="h-[1px] bg-slate-100 dark:bg-white/10 my-2 mx-4"></div>
-              <li>
-                <Link href="/contact" className="flex items-center justify-center bg-purple-600 text-white mx-2 py-3 rounded-xl font-bold">
-                  Hire Me
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
