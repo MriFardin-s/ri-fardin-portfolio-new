@@ -1,12 +1,13 @@
 "use client";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+
 import SkillLevel from "@/components/SkillLevel";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import AboutSection from "@/components/AboutSection";
 import Qualification from "@/components/Qualification";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
         
         {/* Hero Section */}
         <section className="relative z-10">
-          <Hero/>
+       <Hero/>
         </section>
 
         
