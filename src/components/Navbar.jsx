@@ -9,6 +9,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+// import Logo from "../assets/Logo.png";
+// import Image from "next/image";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -55,13 +57,23 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-4 left-0 w-full z-[100] transition-all duration-500 px-4 md:px-10`}>
-      <div className={`max-w-7xl mx-auto flex items-center justify-between transition-all duration-500 px-6 py-3 rounded-full border ${
-        isScrolled
+      <div className={`max-w-7xl mx-auto flex items-center justify-between transition-all duration-500 px-6 py-3 rounded-full border ${isScrolled
           ? "bg-white/80 dark:bg-[#020617]/80 backdrop-blur-xl border-slate-200 dark:border-purple-500/20 shadow-lg"
           : "bg-white/10 dark:bg-white/5 backdrop-blur-md border-white/10"
-      }`}>
+        }`}>
 
         {/* Logo */}
+
+{/* 
+        <Link href="/" className="group">
+          <Image 
+  src={Logo} 
+  alt="Logo" 
+  className="w-[110px] h-[110px] object-contain scale-125 transition-transform" 
+/>
+        </Link> */}
+
+
         <div className="flex-none">
           <Link href="/" className="flex items-center gap-2 text-xl font-black text-slate-900 dark:text-white tracking-tighter group">
             <div className="p-1.5 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 border border-purple-600/20 transition-all">
@@ -78,9 +90,8 @@ export default function Navbar() {
           <ul className="flex items-center gap-1">
             {mainLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-all hover:bg-black/5 dark:hover:bg-white/5 ${
-                  pathname === link.href ? "text-purple-500 bg-purple-500/10" : "text-slate-600 dark:text-gray-300"
-                }`}>
+                <Link href={link.href} className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-all hover:bg-black/5 dark:hover:bg-white/5 ${pathname === link.href ? "text-purple-500 bg-purple-500/10" : "text-slate-600 dark:text-gray-300"
+                  }`}>
                   {link.icon} {link.name}
                 </Link>
               </li>

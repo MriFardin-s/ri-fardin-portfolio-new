@@ -148,7 +148,7 @@ export default function Hero() {
                       ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/25 scale-105'
                       : 'border border-purple-500/30 text-slate-800 dark:text-white hover:bg-purple-500/10'}`}
                 >
-                  View Work -
+                  View Work 
                 </Link>
               </div>
             </div>
