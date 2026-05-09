@@ -10,7 +10,9 @@ export default function Contact() {
         event.preventDefault();
         setIsSubmitting(true);
         const formData = new FormData(event.target);
-        formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+        formData.append("access_key", "3c76e111-4615-4dc5-9d9b-1c08098a9bb0");
+        formData.append("subject", "New Contact Form Submission from FARDIN.DEV");
+        formData.append("from_name", "Portfolio Visitor");
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
@@ -32,14 +34,14 @@ export default function Contact() {
     };
 
     return (
-    
+
         <section id="contact" className="py-24 bg-white dark:bg-[#020617] px-6 relative overflow-hidden transition-colors duration-500" suppressHydrationWarning>
-            
+
 
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none"></div>
 
             <div className="max-w-6xl mx-auto text-center mb-16 relative z-10">
-          
+
                 <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-2 tracking-tighter">
                     Get in <span className="text-purple-600">Touch</span>
                 </h2>
@@ -53,7 +55,7 @@ export default function Contact() {
                     <h3 className="text-xl font-semibold text-slate-800 dark:text-white text-center lg:text-left">Talk to me</h3>
 
                     <div className="space-y-4">
-                  
+
                         {[
                             { icon: <FiMail />, title: "EMAIL", value: "fkfardin900@gmail.com", link: "mailto:fkfardin900@gmail.com" },
                             { icon: <FiLinkedin />, title: "LINKEDIN", value: "rifardin", link: "https://www.linkedin.com/in/m-rabbi-islam-fardin-23a3a4264" },
@@ -63,8 +65,8 @@ export default function Contact() {
                                 <div className="text-2xl text-purple-500 mb-3 group-hover:scale-110 transition-transform">{item.icon}</div>
                                 <h4 className="text-slate-900 dark:text-white font-bold mb-1">{item.title}</h4>
                                 <p className="text-slate-600 dark:text-gray-400 text-sm mb-4">{item.value}</p>
-                                <a 
-                                    href={item.link} 
+                                <a
+                                    href={item.link}
                                     target={item.link.startsWith('http') ? "_blank" : "_self"}
                                     className="flex items-center gap-2 text-purple-500 dark:text-purple-400 text-xs font-semibold group-hover:gap-4 transition-all"
                                 >
@@ -80,7 +82,7 @@ export default function Contact() {
                     <h3 className="text-xl font-semibold text-slate-800 dark:text-white text-center lg:text-left">Write me your project</h3>
 
                     <form onSubmit={handleSubmit} className="space-y-8">
-                     
+
                         <div className="relative group">
                             <label className="absolute -top-3 left-4 bg-white dark:bg-[#020617] px-2 text-xs text-purple-600 dark:text-purple-400/80 z-10 transition-colors">Name</label>
                             <input

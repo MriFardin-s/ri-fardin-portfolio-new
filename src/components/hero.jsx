@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { FiSend, FiLinkedin, FiGithub, FiTwitter, FiInstagram } from "react-icons/fi";
-import heroImg from "../assets/hero-removebg.png";
+import heroImg from "../assets/hero.png";
 import { Typewriter } from "react-simple-typewriter";
 import { useState } from "react";
 import Link from "next/link";
@@ -23,52 +23,59 @@ export default function Hero() {
 
 
           <div className="relative group flex-1 flex justify-center lg:justify-end">
+
             <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-purple-800/10 dark:from-purple-500/30 dark:to-purple-800/20 rounded-full blur-[60px] opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
-            <Image
-              src={heroImg}
-              width="auto"
-              height="auto"
-              alt="Ri Fardin"
-              priority
-              className="transform transition-all duration-700 hover:scale-105 drop-shadow-[0_0_25px_rgba(168,85,247,0.15)] dark:drop-shadow-[0_0_35px_rgba(168,85,247,0.25)] relative z-10"
-            />
+
+            <div className="relative flex justify-center items-center">
+              <Image
+                src={heroImg}
+                width={500}
+                height={500}
+                alt="Ri Fardin"
+                priority
+                className="transform transition-all duration-700 hover:scale-105 drop-shadow-[0_0_25px_rgba(168,85,247,0.1)] relative z-10 object-cover aspect-square [mask-image:radial-gradient(circle_at_center,black_40%,transparent_75%)]"
+              />
+            </div>
           </div>
 
           <div className="flex flex-row items-start gap-10 md:gap-20 flex-1">
-
-            <div className="hidden sm:flex flex-col gap-8 text-2xl text-slate-400 dark:text-gray-500 mt-4 border-r border-slate-200 dark:border-white/5 pr-6">
+            <div className="hidden sm:flex flex-col gap-6 text-xl text-slate-400 dark:text-gray-500 mt-4 border-r border-slate-200 dark:border-white/5 pr-6">
+              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/m-rabbi-islam-fardin-23a3a4264"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-purple-600 dark:hover:text-purple-500 transition-all transform hover:-translate-y-1"
+                className="icon-container hover:text-brand"
               >
                 <FiLinkedin />
               </a>
 
+              {/* GitHub */}
               <a
                 href="https://github.com/MriFardin-s"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-slate-900 dark:hover:text-white transition-all transform hover:-translate-y-1"
+                className="icon-container hover:text-brand"
               >
                 <FiGithub />
               </a>
 
+              {/* Twitter */}
               <a
                 href="https://x.com/rifardin23"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-purple-500 dark:hover:text-purple-400 transition-all transform hover:-translate-y-1"
+                className="icon-container hover:text-brand"
               >
                 <FiTwitter />
               </a>
 
+              {/* Instagram */}
               <a
                 href="https://www.instagram.com/ri_fardin_/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-pink-500 dark:hover:text-pink-400 transition-all transform hover:-translate-y-1"
+                className="icon-container hover:text-brand"
               >
                 <FiInstagram />
               </a>
