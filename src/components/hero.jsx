@@ -26,8 +26,8 @@ export default function Hero() {
             <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-purple-800/10 dark:from-purple-500/30 dark:to-purple-800/20 rounded-full blur-[60px] opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
             <Image
               src={heroImg}
-              width={480}
-              height={480}
+              width="auto"
+              height="auto"
               alt="Ri Fardin"
               priority
               className="transform transition-all duration-700 hover:scale-105 drop-shadow-[0_0_25px_rgba(168,85,247,0.15)] dark:drop-shadow-[0_0_35px_rgba(168,85,247,0.25)] relative z-10"

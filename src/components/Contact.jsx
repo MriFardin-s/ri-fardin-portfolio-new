@@ -33,7 +33,7 @@ export default function Contact() {
 
     return (
     
-        <section id="contact" className="py-24 bg-white dark:bg-[#020617] px-6 relative overflow-hidden transition-colors duration-500">
+        <section id="contact" className="py-24 bg-white dark:bg-[#020617] px-6 relative overflow-hidden transition-colors duration-500" suppressHydrationWarning>
             
 
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none"></div>
